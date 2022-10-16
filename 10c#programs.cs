@@ -78,16 +78,12 @@ namespace Lekstugan
 
             static void program1()
             {
-                //Räkna bensinpriset för ett avstånd.  bensinLiter(distance * literPerKm) * bensinPris = kostnad för sträckan
-                // här skapar vi variablarna. 
+
                 double bensinPris;
                 double distance;
                 double literPerKm;
                 double bensin;
-                // Vi räknar ut bensinpris per x antal mil
-
-                
-                // här ställer vi frågorna och får in svaren som en String.
+   
                 Console.WriteLine("Hur mycket är bensinpriset idag? (kr/liter). 19,98?");
                 string bensinPrisInput = (Console.ReadLine());
                 Console.WriteLine("Hur långt ska du åka? (km)");
@@ -95,13 +91,12 @@ namespace Lekstugan
                 Console.WriteLine("Hur mycket bensin drar din bil? (liter/mil), 0,786?");
                 string literPerKmInput = (Console.ReadLine());
 
-                // här är en If statement inuti en while där vi vill kolla och göra om string till double så vi kan räkna.
                 bool bContinue = true;
                 while (bContinue)
 
                 if (double.TryParse(bensinPrisInput, out bensinPris) && double.TryParse(distanceInput, out distance) && double.TryParse(literPerKmInput, out literPerKm))        
                 {
-                // här sker den sista uträkningen samt skriver ut svaret.
+
                 bensin = ((distance/10) * literPerKm);
                 Console.WriteLine("Ditt bensinpris kommer att bli " + Convert.ToInt32(bensin * bensinPris) + " kr.");
                 Console.ReadLine();
@@ -110,7 +105,7 @@ namespace Lekstugan
 
                 else    
                 {
-                // Här hamnar man om man skriver ut bokstäver eller annat ist för siffror.
+
                 Console.WriteLine("Fel.");
                 Console.ReadKey();
                 return;
@@ -120,7 +115,7 @@ namespace Lekstugan
             
             static void program2()
                 {
-                // Vi räknar ut hur mycket bilen drar per mil
+
                 double prisPumpen;
                 double distance;
                 double bensinPris;
@@ -134,14 +129,12 @@ namespace Lekstugan
                 Console.WriteLine("Hur mycket är bensinpriset idag? (kr/liter). 19,98?");
                 string bensinPrisInput = (Console.ReadLine());
 
-                // här är en If statement inuti en while där vi vill kolla och göra om string till double så vi kan räkna.
                 bool bContinue = true;
                 while (bContinue)
 
                 if (double.TryParse(prisPumpenInput, out prisPumpen) && double.TryParse(distanceInput, out distance) && double.TryParse(bensinPrisInput, out bensinPris))        
                 {
-                // här sker den sista uträkningen samt skriver ut svaret. bensinPris prisPumpen distance
-                //antal liter / antal km *10
+
                 bensin = prisPumpen / bensinPris;
                 Console.WriteLine("Din bil drar " + (bensin / (distance/10)) + " liter/mil");
                 Console.ReadKey();
@@ -151,7 +144,7 @@ namespace Lekstugan
 
                 else    
                 {
-                // Här hamnar man om man skriver ut bokstäver eller annat ist för siffror.
+
                 Console.WriteLine("Fel.");
                 Console.ReadKey();
                 return;
@@ -162,7 +155,7 @@ namespace Lekstugan
 
         static void program3()
             {
-                // Räkna vad en apparat kostar i elkostnad. Hur mkt
+
                 Console.WriteLine("Var är det för apparat?");
                 string apparat = Console.ReadLine();
                 Console.WriteLine("Hur mycket kostar 1 kwh idag? (öre) 55,62?");
@@ -176,14 +169,11 @@ namespace Lekstugan
                 double timmar;
                 double kostnad;
                 
-                // här är en If statement inuti en while där vi vill kolla och göra om string till double så vi kan räkna.
                 bool bContinue = true;
                 while (bContinue)
 
                 if (double.TryParse(kwhPrisInput, out kwhPris) && double.TryParse(wattInput, out watt) && double.TryParse(timmarInput, out timmar))        
                 {
-                // här sker den sista uträkningen samt skriver ut svaret.
-                // 0.00001 är kvot för att få i kr och watt ist för kilowatt och öre.
                 kostnad = (kwhPris * watt * timmar * 0.00001);
                 Console.WriteLine("Din " + apparat + " kan komma att kosta " + Convert.ToInt32(kostnad) + " kr att driva i " + timmar + " timmar.");
                 Console.ReadLine();
@@ -192,7 +182,6 @@ namespace Lekstugan
 
                 else    
                 {
-                // Här hamnar man om man skriver ut bokstäver eller annat ist för siffror.
                 Console.WriteLine("Fel.");
                 Console.ReadKey();
                 return;
@@ -220,7 +209,6 @@ namespace Lekstugan
 
                 Console.WriteLine("Nu behöver vi följande: En ingredients, Volymen i cl och Alkoholhalten. \ntex. \"Vodka [ENTER] 6 [ENTER] 40 [ENTER]\"");
                 Console.WriteLine("");
-                //skapa veriablarna
 
                 double antalCl;
                 double antalAlco;
@@ -231,14 +219,11 @@ namespace Lekstugan
                 string antalClText;
                 string antalAlcoText;
 
-                //listor
                 List<string> liquidList = new List<string>(20);
                 List<double> clList = new List<double>(); 
                 List<double> alcoList = new List<double>();
                 
                 
-
-                //här startar utfrågningen:
                 
                 while (!klar)
                 {
@@ -271,7 +256,6 @@ Loopempty1:
                         }
                 if (liquidInput == "klar" || liquidInput == "klart" || liquidInput == "klar." || liquidInput == "klart.")
                         {
-                            // här är man om man skriver "klar" 
                             klar = true;
                             goto klar;
                         }
@@ -313,9 +297,6 @@ Loopempty1:
                     }
                 
 
-                // dags för listor
-
-
                 liquidList.Add(liquidInput);
                 clList.Add(antalCl);
                 alcoList.Add(antalAlco);
@@ -356,13 +337,8 @@ Loopempty1:
             Console.WriteLine(drinkName + " är en dryck med " + sumCl + "cl volym och en alcoholhalt på " + sumAlco + "%.");
             Console.ReadLine();
  
-
-
-                
+               
             }
-
-
-
 
 
         static void program5()
@@ -376,9 +352,6 @@ List<double> inflationList = new List<double>();
 double[] pris = {63, 65, 65, 64, 65, 66, 65, 67, 71, 70, 68, 69, 70, 67, 62, 65, 68, 69, 68, 67, 67, 68, 70, 72, 77, 83, 91, 92, 82, 77, 81, 84, 86, 82, 78, 78, 81, 86, 89, 84, 80, 82, 86, 92, 96, 95, 95, 95, 89, 83, 88, 90, 87, 87, 84, 80, 76, 73, 76, 79, 81, 83, 82, 79, 75, 76, 75, 78, 81, 85, 86, 84, 85, 86, 85, 87, 89, 93, 95, 94, 94, 97, 99, 99, 100, 115, 130, 164, 241, 266, 271, 221, 184, 174, 174, 177, 171, 169, 171, 168, 162, 157, 155, 151, 152, 155, 157, 162, 165, 170, 193, 219, 234, 235, 234, 233, 234, 241, 255, 256, 260, 304, 326, 328, 330, 339, 356, 372, 388, 391, 407, 416, 436, 449, 463, 487, 519, 540, 551, 566, 605, 650, 689, 735, 808, 887, 979, 1090, 1200, 1286, 1461, 1638, 1778, 1937, 2092, 2246, 2341, 2440, 2582, 2748, 3036, 3319, 3395, 3553, 3631, 3723, 3740, 3760, 3754, 3772, 3809, 3902, 3986, 4063, 4078, 4097, 4152, 4244, 4390, 4378, 4434, 4550, 4590, 4588, 4580, 4578, 4623, 4706, 4798, 4884, 4908, 5014}; 
 prisList.AddRange(pris);
 
-//prisnivå där 0 är 1830 års kr och 191 (sista) är 2021 års krona
-// hämtar från : https://www.scb.se/hitta-statistik/statistik-efter-amne/priser-och-konsumtion/konsumentprisindex/konsumentprisindex-kpi/pong/tabell-och-diagram/konsumentprisindex-kpi/inflation-i-sverige/
- // från excel: (( index1 / index0 -1)*100; math 1st decimal)
 int index2 = 0;
 double addToListVar = 0;
 
@@ -389,10 +362,6 @@ double addToListVar = 0;
         inflationList.Add(addToListVar);
         }
 
-   // Checkers     Console.WriteLine("test prislistan: max och mini:" + prisList[0] + "   " + prisList[191]);
-  // Checkers      Console.WriteLine("test inflationslistan: max och mini:" + inflationList[0] + "   " + inflationList[10] + "   " + inflationList[190]);
-
-        
 
             int pengar = 0;
             int year = 0;
@@ -440,8 +409,7 @@ double siffraInflation = 0.0;
 
 
 
-valueMoney = Convert.ToDouble(pengar); // valueMoney är alltså det inmatadade värdet år 2021
-// (inflationList[0]) är inflatiaonen år 2021
+valueMoney = Convert.ToDouble(pengar); 
 
 
 for (int i = 190; i > yearNumber; i--)
@@ -460,12 +428,6 @@ catch (Exception ex)
                     Console.WriteLine("\nFel : "+ex.Message);
                 }
 
-
-// prislistan börjar på 1830 och slutar på 2021 i index 0 och sista 191
-// inflationslistan börjar på 1831 och slutar på 2021 i index 0 och sista 190.
-// värdet (pengarna) för 2020 från 2021 är (inflationList2021*0,01+1)*Värde(pengarna 2021))
-// värdet (pengarna) för 2019 från 2021 är då (inflationList2020*0,01+1)*(inflationList2021*0,01+1)*Värde(pengarna 2021))
-
         Console.ReadKey();
 
 
@@ -478,7 +440,7 @@ catch (Exception ex)
 
 
         static void program6()
-            // Räkna arbetsgivaravgiften från nettolön
+
             {
                 string lönInput;
                 double lön;
@@ -509,7 +471,6 @@ catch (Exception ex)
 
         static void program7()
             {
-                // 
                 Console.WriteLine("Vad går och går men kommer aldrig fram till dörren?");
                 string svar; 
                 svar = Console.ReadLine();
@@ -529,7 +490,6 @@ catch (Exception ex)
 
         static void program8()
             {
-            //Rulla en tärning.
             Console.WriteLine("Tryck valfri knapp och få ett slumpmässigt värde mellan 1 och 6.");
             Console.ReadLine();
             Random rnd = new Random();
@@ -541,7 +501,6 @@ catch (Exception ex)
 
         static void program9()
             {
-                // Räknar ut kaloribränning
                 Console.WriteLine("Ditt ungefärliga energibehov kan du räkna ut genom den beprövade Harris&Benedict-ekvationen från 1919:");
                 Console.WriteLine();
                 Console.WriteLine("Hur mkt väger du: (kg)");
@@ -562,7 +521,6 @@ catch (Exception ex)
                 double energiintag;
                 double viktnedgang;
 
-                    // här är en If statement inuti en while där vi vill kolla och göra om string till double så vi kan räkna.
                 bool bContinue = true;
                 while (bContinue)
 
@@ -596,7 +554,6 @@ catch (Exception ex)
 
                     else    
                 {
-                    // Här hamnar man om man skriver ut bokstäver eller annat ist för siffror.
                     Console.WriteLine("Fel.");
                     Console.ReadKey();
                     return;
@@ -604,7 +561,7 @@ catch (Exception ex)
             }
         static void program10()
             {
-                // 
+            
                 Console.WriteLine("Made by me, Daniel Åhlander 2022.");
 
                 Console.ReadLine();
